@@ -1,6 +1,14 @@
 packages:
 - readr
 
+include:
+- remake-francesca.yml
+- remake-pascal.yml
+- remake-lorenz.yml
+- remake-martin.yml
+- remake-mauricio.yml
+- remake-kirill.yml
+
 sources:
 - src/
 

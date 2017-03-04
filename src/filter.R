@@ -60,13 +60,17 @@ add_weather_data <- function(delay_data, weather_2016) {
     diff <- time - base_time
     units(diff) <- "secs"
     diff <- as.numeric(diff)
-    trunc(diff / bin_size_min)
+    round(diff / bin_size_min)
   }
 
   weather_bin <-
     weather_2016 %>%
     filter(!is.na(time)) %>%
-    mutate(time_bin = bin_time(time))
+    mutate(time_bin = bin_time(time)) # %>%
+    # clean_weather_bins
+
+  stopifnot(!anyDuplicated(weather_bin$time_bin))
+
   delay_data_bin <-
     delay_data %>%
     mutate(time_bin = bin_time(
@@ -74,7 +78,33 @@ add_weather_data <- function(delay_data, weather_2016) {
         soll_ab_von)
     )
 
-  delay_data_bin %>%
-    left_join(weather_bin, by = "time_bin") %>%
+  ret <-
+    delay_data_bin %>%
+    left_join(weather_bin, by = "time_bin")
+
+  stopifnot(nrow(ret) == nrow(delay_data_bin))
+
+  # FIXME: This loses a few observations, a better way would be to clean the
+  # weather data (see clean_weather_bins())
+  ret <-
+    ret %>%
+    filter(!is.na(time)) %>%
     select(-time_bin)
+
+  stopifnot(!anyNA(ret$time))
+  ret
+}
+
+clean_weather_bins <- function(weather_bins) {
+  all_bins <- seq(from = min(weather_bins$time_bin), to = max(weather_bins$time_bin))
+  missing_bins <- setdiff(all_bins, weather_bins$time_bin)
+  stopifnot(diff(sort(missing_bins) > 1))
+  replacement_bins <- missing_bins - 1
+  relabel_bins <- data_frame(new_time_bin = replacement_bins, time_bin = missing_bins)
+  relabel_bins %>%
+    left_join(weather_bins, by = "time_bin") %>%
+    select(-time_bin) %>%
+    rename(time_bin = new_time_bin) %>%
+    bind_rows(weather_bins) %>%
+    arrange(time_bin)
 }

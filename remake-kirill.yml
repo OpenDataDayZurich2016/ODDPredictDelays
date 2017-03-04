@@ -10,3 +10,6 @@ targets:
 
   weather_2016:
     command: read_weather("raw/messwerte.xlsx")
+
+  fit:
+    command: create_model(filtered_delay_data)

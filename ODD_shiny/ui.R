@@ -20,7 +20,7 @@ shinyUI(fluidPage(
       sliderInput("precipitation", label = "Percipitation", min = 0, max = 1, value = 5),
       selectInput("vehicle_type", 
                   label = "means of transport",
-                  choices = c("Bus", "Tram", "Trolly")),
+                  choices = c("Bus", "Tram", "Trolley")),
       selectInput("weekday", 
                   label = "day of week",
                   choices = list(Sunday = 1,

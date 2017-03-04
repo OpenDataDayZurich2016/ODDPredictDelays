@@ -1,5 +1,6 @@
 packages:
 - readr
+- dplyr
 
 include:
 - remake-francesca.yml

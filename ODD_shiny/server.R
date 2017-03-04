@@ -19,7 +19,7 @@ shinyServer(function(input, output) {
                           precipitation = input$precipitation) #input$weekday)
     
     prediction <- predict(a, newdata = newdata)
-    prediction
+    paste("Your delay is", round(prediction), "seconds")
     })
 
 })

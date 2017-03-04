@@ -15,15 +15,9 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30),
-      
-      
-      sliderInput("temp", "temparature", min = -10, max = 40, value = 50),
-      sliderInput("precipitation", label = "Percipitation", min = -10, max = 50, value = 5),
+
+      sliderInput("temp", "temparature", min = -10, max = 40, value = 5),
+      sliderInput("precipitation", label = "Percipitation", min = 0, max = 50, value = 5),
       selectInput("vehicle_type", 
                   label = "means of transport",
                   choices = c("Bus", "Tram", "Trolly")),

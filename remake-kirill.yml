@@ -4,3 +4,6 @@ targets:
 
   timeslots:
     command: read_timeslots("raw/data/delay_data/timeslots_files.csv")
+
+  stations_2016:
+    command: read_stations("raw/data/delay_data/stations_2016.csv")

@@ -21,3 +21,7 @@ read_soll_ist_one <- function(path) {
 read_timeslots <- function(path) {
   readr::read_delim(path, delim = ",")
 }
+
+read_stations <- function(path) {
+  readr::read_delim(path, delim = ",")
+}

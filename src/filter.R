@@ -12,8 +12,9 @@ add_weekday <- function(delay_data) {
 }
 
 add_delay <- function(delay_data) {
-  mutate(
-    delay = ist_an_von - soll_an_von,
-    delay_next = ist_an_nach1 - soll_an_nach
-  )
+  delay_data %>%
+    mutate(
+      delay = ist_an_von - soll_an_von,
+      delay_next = ist_an_nach1 - soll_an_nach
+    )
 }

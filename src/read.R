@@ -2,7 +2,7 @@ read_soll_ist <- function(timeslots, year, month) {
   year <- 2016
   month <- 11
   first <- as.Date(sprintf("%s-%s-01", year, month))
-  last <- as.Date(sprintf("%s-%s-30", year, month))
+  last <- as.Date(sprintf("%s-%s-23", year, month))
   our_timeslots <-
     timeslots %>%
     filter(as.Date(from) < last & as.Date(to) > first)

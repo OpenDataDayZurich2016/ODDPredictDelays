@@ -9,3 +9,12 @@ We obtain data for the predictors 'weekday' and 'vehicle type' from Open Data Zu
 The delay in arrival times, which is the quantity we want to predict, we obtain from Open Data Zurich as well.
 
 The data set we use for fitting the model contains ca. 6 mio data points. 
+
+To run our model:
+
+ - Clone the project
+ - Make directory 'raw' in project root directory
+ - Move data into dir 'raw'. If you have the data on a USB stick 'Stadt Zurich Open Data' move    data from USB into directory 'raw'.  
+ - Open the RProject in RStudio. 
+ - Hit Ctrl+Shift+B to start the Makefile-based project build.
+ - Enter remake::create_bindings() in R console to bind to the data object from within R.

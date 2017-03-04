@@ -3,7 +3,7 @@ add_delay_data_attributes <- function(delay_data, vbz_lines, weather_2016) {
     add_weekday %>%
     add_delay %>%
     add_vehicle_type(vbz_lines) %>%
-    add_weather_data(delay_data, weather_2016)
+    add_weather_data(weather_2016)
 }
 
 add_weekday <- function(delay_data) {

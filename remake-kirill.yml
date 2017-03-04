@@ -1,6 +1,6 @@
 targets:
   filtered_delay_data:
-    command: add_delay_data_attributes(delay_data, vbz_lines)
+    command: add_delay_data_attributes(delay_data, vbz_lines, weather_2016)
 
   timeslots:
     command: read_timeslots("raw/data/delay_data/timeslots_files.csv")

@@ -12,5 +12,7 @@ read_weather <- function(path) {
     "dew_point",
     "humidity"
   )
-  data %>% filter(lubridate::year(time) == YEAR)
+  data %>%
+    filter(lubridate::year(time) == YEAR) %>%
+    mutate(time = lubridate::`tz<-`(time, "CET"))
 }

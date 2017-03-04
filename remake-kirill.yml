@@ -1,6 +1,6 @@
 targets:
   filtered_delay_data:
-    command: filter_delay_data(delay_data)
+    command: add_delay_data_attributes(delay_data)
 
   timeslots:
     command: read_timeslots("raw/data/delay_data/timeslots_files.csv")

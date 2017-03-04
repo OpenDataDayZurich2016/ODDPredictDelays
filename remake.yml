@@ -1,0 +1,9 @@
+packages:
+- readr
+
+sources:
+- src/
+
+targets:
+  delay_data:
+    command: read_soll_ist("raw/data/delay_data/fahrzeitensollist2015092020150926.csv")

@@ -17,13 +17,19 @@ shinyUI(fluidPage(
     sidebarPanel(
 
       sliderInput("temp", "temparature", min = -10, max = 40, value = 5),
-      sliderInput("precipitation", label = "Percipitation", min = 0, max = 50, value = 5),
+      sliderInput("precipitation", label = "Percipitation", min = 0, max = 1, value = 5),
       selectInput("vehicle_type", 
                   label = "means of transport",
                   choices = c("Bus", "Tram", "Trolly")),
       selectInput("weekday", 
                   label = "day of week",
-                  choices = 1:7)
+                  choices = list(Sunday = 1,
+                                 Monday = 2, 
+                                 Tuesday = 3, 
+                                 Wednesday = 4, 
+                                 Thursday = 5, 
+                                 Friday = "6", 
+                                 Saturday = "7"))
       ),
 
     # Show a plot of the generated distribution

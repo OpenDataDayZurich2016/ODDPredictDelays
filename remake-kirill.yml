@@ -7,3 +7,6 @@ targets:
 
   stations_2016:
     command: read_stations("raw/data/delay_data/stations_2016.csv")
+
+  weather_2016:
+    command: read_weather("raw/messwerte.xlsx")

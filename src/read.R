@@ -1,5 +1,7 @@
+YEAR <- 2016
+
 read_soll_ist <- function(timeslots, year, month) {
-  year <- 2016
+  year <- YEAR
   month <- 11
   first <- as.Date(sprintf("%s-%s-01", year, month))
   last <- as.Date(sprintf("%s-%s-23", year, month))

@@ -16,9 +16,11 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
 
-      sliderInput("temp", "temparature", min = -10, max = 40, value = 5),
+      sliderInput("temp", "temparature", min = 0, max = 35, value = 5),
       sliderInput("precipitation", label = "Percipitation", min = 0, max = 1, value = 5),
-      selectInput("vehicle_type", 
+      sliderInput("humidity", "Humidity", min = 50, max = 100, value = 60),
+      sliderInput("windspeed_max", "Windspeed", min = 0, max = 20, value = 10),
+                  selectInput("vehicle_type", 
                   label = "means of transport",
                   choices = c("Bus", "Tram", "Trolley")),
       selectInput("weekday", 

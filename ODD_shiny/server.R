@@ -9,13 +9,15 @@ library(shiny)
 library("readr")
 library("remake")
 shinyServer(function(input, output) {
-  a <- withr::with_dir("..", remake::fetch("fit"))
+  a <- read_rds("model")
 
   
   output$prediction <- renderText({
     newdata <- data.frame(weekday = input$weekday, 
                           vehicle_type = input$vehicle_type, 
                           temp = input$temp, 
+                          humidity = input$humidity,
+                          windspeed_max = input$windspeed_max,
                           precipitation = input$precipitation) #input$weekday)
     
     prediction <- predict(a, newdata = newdata)

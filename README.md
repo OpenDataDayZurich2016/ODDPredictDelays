@@ -1,6 +1,6 @@
 ## Synopsis
 
-In this project, we fit a simple linear model to predict delays in arrival times of VBZ public transportation vessels using data of 4 weeks.
+In this project, we fit a simple linear model to predict delays in arrival times of VBZ public transportation vessels using data of 4 weeks. The accompanying shiny app can be found [here](https://lorenzwalthert.shinyapps.io/odd_predict_delays/).
 
 To fit the model, we use the predictors 'weekday', 'vehicle type', 'temperature' and 'precipitation'. 'weekday' and 'vehicle type' are categorical predictors. 'temperature' and 'precipitation' are continuous predictors. 
 
